@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ASP_NET_INMN3_PA1_1_sp_wszyscy_Z2.Models.Miasto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form>
+    <p>
+        <label for="szukanaFraza">Wyszukaj w nazwie: </label>
+        <input name="szukanaFraza" value="@ViewData["SzukanaFraza"]"/>
+        <input type="submit" value="Szukaj"/>
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Populacja)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Populacja)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model ASP_NET_INMN3_PA1_1_sp_wszyscy_Z2.Models.Miasto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Miasto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nazwa" class="control-label"></label>
+                <input asp-for="Nazwa" class="form-control" />
+                <span asp-validation-for="Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Populacja" class="control-label"></label>
+                <input asp-for="Populacja" class="form-control" />
+                <span asp-validation-for="Populacja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
